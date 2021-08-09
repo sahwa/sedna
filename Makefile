@@ -1,2 +1,27 @@
-sedna: main.cpp 
-    g++ -o sedna main.cpp -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
+CXX=g++
+
+IDIR=include
+CFLAGS=-I$(IDIR) -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
+
+_DEPS = olcPixelGameEngine.h 
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = main.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+SRC=src
+
+BIN=bin
+
+ODIR=obj
+
+$(ODIR)/%.o: $(SRC)/%.cpp $(DEPS)
+	$(CXX) -c -o $@ $< $(CFLAGS)
+
+$(BIN)/sedna: $(OBJ)
+	$(CXX) -o $@ $^ $(CFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ $(BIN)/*

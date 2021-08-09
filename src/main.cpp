@@ -21,7 +21,7 @@ class Example : public olc::PixelGameEngine {
 
 			return true;
 		}
-}
+};
 
 int main() {
 	
