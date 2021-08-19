@@ -3,10 +3,10 @@ CXX=g++
 IDIR=include
 CFLAGS=-I$(IDIR) -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17
 
-_DEPS = olcPixelGameEngine.h 
+_DEPS = olcPixelGameEngine.h nbody.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o
+_OBJ = main.o nbody.o circular.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 SRC=src

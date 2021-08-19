@@ -1,10 +1,10 @@
 #define OLC_PGE_APPLICATION
 #include "olcPixelGameEngine.h"
 
-class Example : public olc::PixelGameEngine {
+class Draw_Example : public olc::PixelGameEngine {
 	public:
-		Example() {
-			sAppName = "Example";
+		Draw_Example() {
+			sAppName = "Draw_Example";
 		}
 
 	public:
@@ -14,8 +14,8 @@ class Example : public olc::PixelGameEngine {
 
 		bool OnUserUpdate(float fElapsedTime) override {
 			for (int x=0; x < ScreenWidth(); x++) {
-				for (int y=0; y< ScreenHeight(); y++) {
-					Draw(x, y, olc::Pixel(rand() % 256, rand() % 256, rand() % 256));
+				for (int y=0; y < ScreenHeight(); y++) {
+						Draw(x, y, olc::Pixel(rand() % 256, rand() % 256, rand() % 256));
 				}
 			}
 
@@ -25,10 +25,12 @@ class Example : public olc::PixelGameEngine {
 
 int main() {
 	
-	Example demo;
-	if (demo.Construct(256, 240, 4, 4)) {
-		demo.Start();
+	Draw_Example Draw_Demo;
+
+	if (Draw_Demo.Construct(256, 240, 4, 4)) {
+		Draw_Demo.Start();
 	}
 
 	return 0;
 }
+
